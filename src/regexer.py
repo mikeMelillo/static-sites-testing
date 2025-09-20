@@ -30,7 +30,7 @@ def split_nodes_image(old_nodes:list[TextNode]):
       original_text = sections[1]
     if original_text != "":
       new_nodes.append( TextNode(original_text, TextType.TEXT) )
-    return new_nodes
+  return new_nodes
 
 def split_nodes_link(old_nodes):
     new_nodes = []
@@ -79,8 +79,13 @@ def split_nodes_delimiter(old_nodes:list[TextNode], delimiter:str, text_type:Tex
 
 def text_to_textnodes(text):
   initial_text_node = TextNode(text, TextType.TEXT)
+  #print(f"Initial: {initial_text_node}")
   new_nodes = split_nodes_delimiter([initial_text_node], "**", TextType.BOLD)
-  new_nodes = split_nodes_delimiter([new_nodes], "_", TextType.ITALIC)
-  new_nodes = split_nodes_delimiter([new_nodes], "`", TextType.CODE)
-  new_nodes = split_nodes_image([new_nodes])
-  return split_nodes_link([new_nodes])
+  new_nodes = split_nodes_delimiter(new_nodes, "_", TextType.ITALIC)
+  new_nodes = split_nodes_delimiter(new_nodes, "`", TextType.CODE)
+  #print(f"Before image split: {new_nodes}")
+  new_nodes = split_nodes_image(new_nodes)
+  #print(f"Before link split: {new_nodes}")
+  new_nodes = split_nodes_link(new_nodes)
+  #print(f"Nodes are now: {new_nodes}")
+  return new_nodes
