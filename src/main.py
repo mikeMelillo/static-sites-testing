@@ -1,13 +1,33 @@
 from textnode import TextNode,TextType
 from htmlnode import HTMLNode, LeafNode, ParentNode
+from extract_title import *
 import os
 from shutil import copy, rmtree
 
 def main():
   copy_contents("static", "public")
+  generate_pages_recursive("content", "template.html", "public")
+  
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+  source_contents = os.listdir(dir_path_content)
+  print(f"These contents: {source_contents}")
+
+  for item in source_contents:
+    print(f"Analyzing: {item}")
+    source_path = os.path.join(dir_path_content, item)
+    dest_path = os.path.join(dest_dir_path, item)
+    print(f"Source: {source_path}, Dest: {dest_path}")
+    if os.path.isdir(source_path) and not os.path.isdir(dest_path):
+      os.mkdir(dest_path)
+      print("Recursively walking tree..")
+      generate_pages_recursive(source_path, template_path, dest_path)
+    elif os.path.isfile(source_path):
+      print("Generating page..")
+      generate_page(source_path, template_path, dest_path)
+  pass
+
 
 def iter_dir(source_path, dest_path, new_dir):
-
   new_source_path = os.path.join(source_path, new_dir)
   new_dest_path = os.path.join(dest_path, new_dir)
   print(f"New source: {new_source_path}, New dest: {new_dest_path}")
@@ -29,27 +49,21 @@ def copy_contents(source:str="static", dest:str="public"):
     os.mkdir(dest)
     root = False
   
-  #iter_dir(source, dest, current_path = None)
   source_dir = os.listdir(source)
-  print(f"Source Dir: {source_dir}")
+
+  print(f"Starting out: {source_dir}")
 
   for item in source_dir:
+    print(f"Working on {item}")
     source_path = os.path.join(source, item)
     dest_path = os.path.join(dest, item)
-    print(f"Source path: {source_path}, Dest path: {dest_path}")
-    if not os.path.exists(dest_path):
-      print("Making dir")
+    if os.path.isdir(source_path) and not os.path.exists(dest_path):
       os.mkdir(dest_path)
     if os.path.isfile(source_path):
-      print("Copying file")
       copy(source_path, dest_path)
     else:
-      print(f"Iterating for {dest_path}")
       new_dirs = os.listdir(source_path)
-      print(f"New Dirs: {new_dirs}")
       for new_dir in new_dirs:
-        iter_dir(source_path, dest_path, new_dir)      
-
-  print(source_dir)
+        iter_dir(source_path, dest_path, new_dir)
 
 main()

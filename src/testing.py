@@ -20,6 +20,3 @@ This is the same paragraph on a new line
 """
 
 results = markdown_to_html_node(md)
-
-print(f"Html nodes: {results}")
-print(f"Resulting html: {results.to_html()}")
