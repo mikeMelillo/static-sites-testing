@@ -1,6 +1,6 @@
 # Contact the Author
 
-[< Back Home](/)
+[< Back Home](/static_sites_testing/)
 
 Give me a call anytime to chat about Tolkien!
 
