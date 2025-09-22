@@ -1,6 +1,6 @@
 # Tolkien Fan Club
 
-![JRR Tolkien sitting](/static_sites_testing/images/tolkien.png)
+![JRR Tolkien sitting](/static-sites-testing/images/tolkien.png)
 
 Here's the deal, **I like Tolkien**.
 
@@ -10,9 +10,9 @@ Here's the deal, **I like Tolkien**.
 
 ## Blog posts
 
-- [Why Glorfindel is More Impressive than Legolas](/static_sites_testing/blog/glorfindel)
-- [Why Tom Bombadil Was a Mistake](/static_sites_testing/blog/tom)
-- [The Unparalleled Majesty of "The Lord of the Rings"](/static_sites_testing/blog/majesty)
+- [Why Glorfindel is More Impressive than Legolas](/static-sites-testing/blog/glorfindel)
+- [Why Tom Bombadil Was a Mistake](/static-sites-testing/blog/tom)
+- [The Unparalleled Majesty of "The Lord of the Rings"](/static-sites-testing/blog/majesty)
 
 ## Reasons I like Tolkien
 
