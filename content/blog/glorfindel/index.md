@@ -1,8 +1,8 @@
 # Why Glorfindel is More Impressive than Legolas
 
-[< Back Home](/static_sites_testing/)
+[< Back Home](/static-sites-testing/)
 
-![Glorfindel image](/static_sites_testing/images/glorfindel.png)
+![Glorfindel image](/static-sites-testing/images/glorfindel.png)
 
 > "The deeds of Glorfindel shine bright as the morning sun, whilst the feats of others are as the flickering of stars in the night sky."
 

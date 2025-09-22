@@ -1,8 +1,8 @@
 # The Unparalleled Majesty of "The Lord of the Rings"
 
-[< Back Home](/static_sites_testing/)
+[< Back Home](/static-sites-testing/)
 
-![LOTR image artistmonkeys](/static_sites_testing/images/rivendell.png)
+![LOTR image artistmonkeys](/static-sites-testing/images/rivendell.png)
 
 > "I cordially dislike allegory in all its manifestations, and always have done so since I grew old and wary enough to detect its presence.
 > I much prefer history, true or feigned, with its varied applicability to the thought and experience of readers.
