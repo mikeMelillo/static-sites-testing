@@ -2,11 +2,16 @@ from textnode import TextNode,TextType
 from htmlnode import HTMLNode, LeafNode, ParentNode
 from extract_title import *
 import os
+import sys
 from shutil import copy, rmtree
 
 def main():
-  copy_contents("static", "public")
-  generate_pages_recursive("content", "template.html", "public")
+  try:
+    basepath = sys.argv[1]
+  except Exception:
+    basepath = ""
+  copy_contents(f"{basepath}static", f"{basepath}docs")
+  generate_pages_recursive(f"{basepath}content", "template.html", f"{basepath}docs")
   
 def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
   source_contents = os.listdir(dir_path_content)
@@ -42,7 +47,7 @@ def iter_dir(source_path, dest_path, new_dir):
       iter_dir(new_source_path, new_dest_path, dir)
   return None
 
-def copy_contents(source:str="static", dest:str="public"):
+def copy_contents(source, dest):
   root = True
   if root:
     rmtree(dest)
